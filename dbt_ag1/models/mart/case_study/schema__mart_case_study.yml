@@ -1,0 +1,51 @@
+version: 2
+
+models:
+  - name: fact_sales
+    description: Captures all sales-related transactions and metrics.
+    columns:
+      - name: sales_sk
+        description: The primary key for the fact table. Generated using order_id, customer_id, product_id.
+        tests: 
+          - not_null
+          - unique
+      - name: product_sk
+        description: Foreign key linking to the product dimension
+        tests: 
+          - not_null
+          - relationships:
+              to: ref('dim_products')
+              field: product_sk
+      - name: customer_sk
+        description: Foreign key linking to the customer dimension
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_customers')
+              field: customer_sk
+      - name: sale_date
+        description: Date of the sale
+      - name: quantity
+        description: Number of items purchased
+      - name: unit_price
+        description: Price per unit at the time of sale
+      - name: revenue
+        description: Total revenue generated from the sale (calculated as Quantity * Unit_Price)
+
+  - name: dim_customers
+    description: Provides comprehensive details about customers for engagement analysis.
+    columns:
+      - name: customer_sk
+        description: The primary key for the customers dimension.
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_products
+    description: Offers product attributes essential for product optimization.
+    columns:
+      - name: product_sk
+        description: The primary key for the products dimension.
+        tests: 
+          - not_null
+          - unique
