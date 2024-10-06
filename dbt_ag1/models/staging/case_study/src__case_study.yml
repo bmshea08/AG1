@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: raw_case_study
+    database: ag1
+    schema: raw_case_study
+    tables:
+      - name: customers
+      - name: orders
+      - name: products

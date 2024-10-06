@@ -1,0 +1,13 @@
+dbt_ag1:
+  outputs:
+    dev:
+      type: snowflake
+      account: ujubdzb-mvb22678
+      user: BMSHEA08
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+      role: ACCOUNTADMIN  
+      database: AG1
+      warehouse: COMPUTE_WH
+      schema: AG1_Case_Study
+      authenticator: snowflake
+  target: dev
