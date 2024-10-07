@@ -5,7 +5,7 @@ different upstream sources and product_id could have some overlap which would ma
 we would also need to modify the SK generation to include additional fields.
 */
 
-select  {{ dbt_utils.generate_surrogate_key(['product_id']) }} as product_sk,
+SELECT  {{ dbt_utils.generate_surrogate_key(['product_id']) }} AS product_sk,
     product_id,
     coffee_type,
     roast_type,
@@ -13,4 +13,4 @@ select  {{ dbt_utils.generate_surrogate_key(['product_id']) }} as product_sk,
     unit_price,
     price_per_110g,
     profit
-from {{ ref('stg_case_study__products') }}
+FROM {{ ref('stg_case_study__products') }}
