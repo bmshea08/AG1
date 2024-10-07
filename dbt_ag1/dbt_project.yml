@@ -37,6 +37,7 @@ models:
       +materialized: view
     mart:
       +schema: analytics
+      +materialized: view
 
 seeds:
   dbt_ag1:

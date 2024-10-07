@@ -125,8 +125,6 @@ models:
   dbt docs generate
   ```
 
-Here’s an updated section for the `README.md` that includes the analytical queries based on the fact table, as well as descriptions of what each query achieves.
-
 ---
 
 ### Analytical Queries

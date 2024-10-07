@@ -1,14 +1,14 @@
-with orders as (
+WITH orders AS (
 
-    select distinct
+    SELECT DISTINCT
         order_id,
         customer_id,
         product_id,
-        cast(order_date as date) as order_date,
-        cast(quantity as integer) as order_quantity
+        cast(order_date as date) AS order_date,
+        cast(quantity as integer) AS order_quantity
 
-    from {{ source('raw_case_study', 'orders') }}
+    FROM {{ source('raw_case_study', 'orders') }}
 
 )
 
-select * from orders
+SELECT * FROM orders

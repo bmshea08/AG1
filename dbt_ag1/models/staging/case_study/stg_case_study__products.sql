@@ -1,6 +1,6 @@
 with products as (
 
-    select distinct
+    SELECT DISTINCT
         product_id,
         coffee_type,
         roast_type,
@@ -9,8 +9,8 @@ with products as (
         cast(price_per_100g as decimal(18,2)) as price_per_110g,
         cast(profit as decimal(18,2)) as profit
 
-    from {{ source('raw_case_study', 'products') }}
+    FROM {{ source('raw_case_study', 'products') }}
 
 )
 
-select * from products
+SELECT * FROM products

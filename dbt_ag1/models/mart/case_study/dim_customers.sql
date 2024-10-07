@@ -5,7 +5,7 @@ different upstream sources and customer_id could have some overlap which would m
 we would also need to modify the SK generation to include additional fields.
 */
 
-select {{ dbt_utils.generate_surrogate_key(['customer_id']) }} as customer_sk,
+SELECT {{ dbt_utils.generate_surrogate_key(['customer_id']) }} AS customer_sk,
     customer_id,
     customer_first_name,
     customer_last_name,
@@ -17,4 +17,4 @@ select {{ dbt_utils.generate_surrogate_key(['customer_id']) }} as customer_sk,
     country,
     postal_code,
     loyalty_card
-from {{ ref('stg_case_study__customers') }}
+FROM {{ ref('stg_case_study__customers') }}
